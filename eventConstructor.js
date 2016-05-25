@@ -22,16 +22,10 @@ function Event() {
   
   this.handlers = [];
   
-  this.subscribe = function(func){
-    this.handlers.push(func);
-  };
+  this.subscribe = func => this.handlers.push(func);
+  
+  this.unsubscribe = func => this.handlers = this.handlers.filter( fn => fn !== func);
  
-  this.unsubscribe = function(func){
-   this.handlers = this.handlers.filter( fn => fn !== func);
-  };
-
-  this.emit = function(){
-    var args = Array.prototype.slice.call(arguments);
-    this.handlers.forEach( fn => fn.apply(null,args));
-  }
+  this.emit = (...args) => this.handlers.forEach( fn => fn.apply(null,args));
+  
 }
