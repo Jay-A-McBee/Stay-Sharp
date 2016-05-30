@@ -18,7 +18,7 @@
 // the empty string "" can be read forward or backward the same, it's a palindrome in our case.
 
 
-//solution
+//imperative solution
 
 let palindrome = (string) => {
  
@@ -32,4 +32,21 @@ let palindrome = (string) => {
     }
   }
   return true;
+}
+
+//functional solution
+
+let palindrome = (string) => {
+ 
+let cleanString = string
+  .replace(/\s|\W/g,"")
+  .toLowerCase()
+ 
+let rev = cleanString
+  .split('')
+  .reduceRight((rev,char) => {
+    return rev+=char;  
+  })
+
+  return cleanString === rev;
 }
