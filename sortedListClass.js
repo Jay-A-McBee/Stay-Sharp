@@ -27,7 +27,7 @@ class SortedList {
       {i : 0, len: middleIdx} : 
       {i: middleIdx + 1, len: this.length};
  
-    for( i; i < this.length; i++){
+    for( i; i <= len; i++){
       if(this.list[i] >= val){
         this.list.splice(i,0,val);
         return;
