@@ -34,7 +34,7 @@ class SortedList {
       }
   
     }
-  this.list.push(val);
+    this.list.push(val);
   }
 
   get(i){
