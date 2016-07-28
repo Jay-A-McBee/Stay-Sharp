@@ -27,14 +27,14 @@ let palindrome = (string) => {
     .toLowerCase();
  
   for(let i = 0; i < Math.floor(cleanString.length/2); i++){
-    if(cleanString[i] !== cleanString[cleanString.length - i - 1]){
+    if(cleanString[i] !== cleanString[cleanString.length - 1 - i]){
       return false;
     }
   }
   return true;
 }
 
-//functional solution
+//declaritive solution
 
 let palindrome = (string) => {
  
@@ -44,9 +44,7 @@ let cleanString = string
  
 let rev = cleanString
   .split('')
-  .reduceRight((rev,char) => {
-    return rev+=char;  
-  })
+  .reduceRight((rev,char) => rev+=char,'')
 
   return cleanString === rev;
 }
